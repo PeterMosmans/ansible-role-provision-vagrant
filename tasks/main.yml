@@ -1,0 +1,23 @@
+---
+# file: PeterMosmans.provision-vagrant/tasks/main.yml
+- name: Add vagrant user
+  user:
+    name=vagrant
+    comment="Vagrant user"
+    shell=/bin/bash
+    groups=sudo
+    state=present 
+
+- name: Add the generic Vagrant authorized key
+  authorized_key: user=vagrant key="{{ vagrant_key }}"
+
+- name: Allow passwordless sudo for vagrant user
+  lineinfile:
+    "dest=/etc/sudoers
+    state=present
+    regexp='^{{ item }}'
+    insertafter=EOF
+    line='{{ item }} ALL=(ALL) NOPASSWD: ALL'"
+  with_items:
+    - vagrant
+
