@@ -47,3 +47,6 @@ script:
 #    || (echo 'Idempotence test: fail' && exit 1)
   # Check the tools
  #
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
