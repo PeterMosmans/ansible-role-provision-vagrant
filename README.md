@@ -1,11 +1,11 @@
-Ansible Role: http2
+Ansible Role: provision-vagrant
 ===================
 
 
 Build status for this role: [![Build Status](https://travis-ci.org/PeterMosmans/ansible-role-provision-vagrant.svg)](https://travis-ci.org/PeterMosmans/ansible-role-provision-vagrant)
 
 
-This role provisions a machine for Vagrant usage. It will add the vagrant user, enable sudo access, and copy the (insecure) default SSH key to the machine.
+This role provisions a machine for Vagrant usage. It will add the vagrant user, enable (passwordless) sudo access, and copy the (insecure) default SSH key to the machine.
 
 
 Requirements
