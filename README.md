@@ -37,7 +37,7 @@ Example Playbook
     - role: PeterMosmans.provision-vagrant
 ```
 
-
+Note that a private key for the vagrant user will be added as well, which can be found under `files/id_rsa`. By default, this is the 'insecure' default private Vagrant key, to facilitate hopping to other Vagrant boxes.
 
 License
 -------
