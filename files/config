@@ -1,0 +1,6 @@
+Host *
+  ForwardAgent yes
+  PasswordAuthentication yes
+  Protocol 2
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null

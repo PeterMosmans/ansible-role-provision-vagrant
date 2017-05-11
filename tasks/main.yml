@@ -1,17 +1,17 @@
 ---
 # file: PeterMosmans.provision-vagrant/tasks/main.yml
-- name: Add vagrant user
+- name: Add the vagrant user
   user:
     name=vagrant
     comment="Vagrant user"
     shell=/bin/bash
     groups=sudo
-    state=present 
+    state=present
 
-- name: Add the generic Vagrant authorized key
+- name: Add the generic vagrant authorized key
   authorized_key: user=vagrant key="{{ vagrant_key }}"
 
-- name: Allow passwordless sudo for vagrant user
+- name: Allow passwordless sudo for the vagrant user
   lineinfile:
     "dest=/etc/sudoers
     state=present
@@ -21,10 +21,18 @@
   with_items:
     - vagrant
 
-- name: Add the default insecure private key for vagrant user
+- name: Add the default insecure private key for the vagrant user
   copy:
     src=id_rsa
     dest=/home/vagrant/.ssh/id_rsa
+    mode="0600"
+    owner=vagrant
+    group=vagrant
+
+- name: Copy a default SSH configuration for the vagrant user
+  copy:
+    src=config
+    dest=/home/vagrant/.ssh/config
     mode="0600"
     owner=vagrant
     group=vagrant
